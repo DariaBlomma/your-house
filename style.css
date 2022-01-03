@@ -1,0 +1,1037 @@
+﻿@font-face{ /* ред. 20.12 */
+
+font-family: 'Garamond C';
+
+src: /*url('../fonts/Garamond C.eot');
+
+src: url('../fonts/WebFont.eot?iefix') format('eot'),
+
+url('../fonts/WebFont.woff') format('woff'), */
+
+url('fonts/GaramondC-Bold.ttf') format('truetype')/* ,
+
+url('../fonts/WebFont.svg#webfont') format('svg') */;
+
+font-weight: bold;
+
+font-style: normal;
+
+}
+/* @font-face{
+	font-family: 'ArialMT';
+	src: url('fonts/arialmt.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+} */
+	
+/*скрытая прокрутка по вертикали */
+html, body {
+  overflow: hidden;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  overflow-y: scroll;
+  width: calc(100% + 20px);
+  padding: 8px;
+}
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	height: -webkit-fill-available;
+	background-image: url(images/background.png);
+}
+.container {
+	width: 925px;
+	margin: 0 auto;
+	box-shadow: -12px 0px 10px -8px rgba(34, 60, 80, 0.2) , 12px 0px 10px -8px rgba(34, 60, 80, 0.2);
+	background-image: url(images/mainbackground.png);
+}
+/*HEADER */
+/*cамая верхняя темно-коричневая строка */
+/*cамый общий div обертка*/
+.upline {
+	background:#4a2c18; /*dark brown color */
+	height:71px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between; /*для растаски по углам */
+	align-items: center; /*выравнивание по вертикали по центру */
+	padding: 0 28px;
+}
+/*номер телефона */
+.upnumber {
+	font-size: 26px;
+	letter-spacing: 1px;
+	color: #ffffff;
+	font-family: "Book Antiqua";
+}
+/*2 светлые кнопки справа */
+/*вложенный flex: крайние элементы прижимаются к краям (место между элементами распределяется равномерно) */
+ .buttons {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+} 
+/*оформление 2х свтелых кнопок */
+.request,
+.cv {
+	border-radius: 6px;
+	background: linear-gradient(to bottom,  #f7e3ad 20%,  #efc77b 40%, #efd394); /*cветлый градиент */
+	font-size: 16px;
+	color: #472800;
+	font-family: "Book Antiqua";
+	font-weight: bold;
+	width: 173px;
+	height: 24px;
+	margin: 7px 0;
+	border: 1px solid #d8c891;
+	border-top: 1px solid #d8c891;
+	text-shadow: rgba(71, 40, 0, 0.3) 0 0 1px;
+} 
+.cv {
+	margin-top: 0px;
+}
+.request:focus, .cv:focus {
+	background: linear-gradient(to bottom,  #f5dcb9 20%,  #cd9035 40%, #7a4a0d); /*cветлый градиент */
+	color: white;
+	outline: none;
+	border: 1px solid #ab6d17;
+}
+
+/*раскрывающийся список request */
+.btn, .btn2 {
+	display: inline-block;
+	position: relative;
+	/* display:block; */
+}
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content2, .dropdown-content3 {
+    display: none;
+    position: absolute;
+	right: 0px;
+	
+    background-color: rgba(248, 239, 217, 0.8);
+    width: 320px;
+	height: 338px;
+    z-index: 3;
+	border: 1px solid #cd8d31;
+	border-radius: 2px;
+	margin-top: 0px;
+	padding-top: 7px;
+	padding-bottom: 13px;
+}
+.dropdown-content3 {
+	height: 292px;
+}
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:inline-block;}
+/*оформление раскрывающегося списка*/
+select {
+	border: 1px solid #b57929;
+	background: url('images/select.png') no-repeat right center; /*фото стрелочки справа по центру*/
+	background-color: white;
+	-webkit-appearance: none;/* Chrome */
+    -moz-appearance: none;/* Firefox */
+    appearance: none;/* убираем дефолнтные стрелочки */
+	padding: 5px 5px 5px 13px; /*отступы для текста внутри поля*/
+	font-family: "Verdana", sans-serif; 
+	text-shadow: rgba(0, 0, 0, 0.5) 0 1px 0;
+}
+/*убираем границы при нажатии*/
+select:focus {
+	outline: none;
+}
+/*оформление раскрывающего списка с jquery*/
+*,
+*:before,
+*:after{
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+/* .dropdown-content3 .select, */ .select_upperstaff, .select_timetable {
+    display: inline-block;
+  vertical-align: top; 
+  max-width: 308px;
+  height:31px;
+    width: 100%;
+	margin: 7px 5px;
+}
+
+/* .select-wrap {
+	max-width: 308x;
+	height:31px;
+	width: 100%;
+	margin: 20px auto;
+	
+}
+
+.select-wrap select {
+	margin: 20px;
+	
+} */
+/* внещний вид самого select */
+.select__gap_upperstaff, .select__gap_timetable{
+	height:31px;
+	color: black;
+	text-shadow: rgba(0, 0, 0, 0.5) 0 1px 0;
+	background: url('images/select.png') no-repeat right center, linear-gradient(to bottom, white 40%, #fff6e2); /*фото стрелочки справа по центру*/
+	-webkit-appearance: none;/* Chrome */
+    -moz-appearance: none;/* Firefox */
+    appearance: none;/* убираем дефолнтные стрелочки */
+    border: 1px solid #cd8d31;
+	font-size: 14px;
+	font-family: "Verdana", sans-serif;
+	padding: 10px 13px;
+	padding-top: 6px;
+	cursor: pointer;
+	position: relative;
+}
+
+/* .on.select__gap, 
+.select__gap:hover {
+  color: #467797;
+} 
+*/
+/* контейнер с выборами ответа */
+.select__list_upperstaff {
+	background-color: #fcebc6;
+    border: 1px solid #cd8d31;
+	height: 159px;
+	margin: 0px 0;
+	position: relative;
+	z-index: 4;
+}
+.select__list_timetable {
+	background-color: #fcebc6;
+    border: 1px solid #cd8d31;
+	height: 124px;
+	margin: 0px 0;
+	position: relative;
+	z-index: 4;
+}
+/* .select__list.on {
+	display: block;
+} */
+/* шрифт в выборах  ответа */
+.select__item_upperstaff span, .select__item_timetable span {
+	display: block;
+	padding: 0 13px;
+	font-family: "Verdana", sans-serif;
+	font-size: 14px;
+	line-height: 31px;
+	text-shadow: rgb(71, 40, 0) 0 0 1px;
+	cursor: pointer;
+    color: #45250a;
+}
+/* выделение цветом при наведении */
+.select__item_upperstaff.selected, .select__item_timetable.selected,
+.select__item_upperstaff span:hover, .select__item_timetable span:hover {
+	background-color: #d8af75;
+}
+
+/*размеры поля ввода input type number*/
+input[type=text], input[type=file], .upper_staff, .timetable, textarea, .job_position {
+	margin: 7px 5px;
+	padding-left: 11px;
+	width: 308px;
+	height: 32px;
+	border: 1px solid #cd8d31;
+	box-sizing: border-box;
+	font-size: 14px;
+	color: #55493f;
+	font-family: "Verdana";
+	background: linear-gradient(to bottom, white 40%, #fff6e2);
+	text-shadow: rgba(0, 0, 0, 0.5) 0 1px 0;
+}
+input[type=text]:focus, input[type=file]:focus, .upper_staff:focus, .timetable:focus, textarea:focus, .job_position:focus {
+	outline: none;
+}
+.upper_staff, .timetable, .job_position {
+	color: black;
+	text-shadow: rgba(0, 0, 0, 0.5) 0 1px 0;
+	background: url('images/select.png') no-repeat right center, linear-gradient(to bottom, white 40%, #fff6e2); /*фото стрелочки справа по центру*/
+
+	
+	-webkit-appearance: none;/* Chrome */
+    -moz-appearance: none;/* Firefox */
+    appearance: none;/* убираем дефолнтные стрелочки */
+}
+textarea {
+	height: 72px;
+	margin-bottom: 17px;
+	padding-top: 9px;
+}
+.input__wrapper {
+  width: 100%;
+  position: relative;
+  margin: 7px 0;
+  text-align: center;
+}
+.input__file {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+.input__file-button-text {
+  line-height: 1;
+  margin-top: 1px;
+}
+ 
+.input__file-button {
+  width: 100%;
+  max-width: 308px;
+  height: 32px;
+  background: linear-gradient(to bottom, white 40%, #fff6e2);
+  color: #55493f;
+  font-size: 14px;
+  font-family: "Verdana";
+  text-shadow: rgba(0, 0, 0, 0.5) 0 1px 0;
+  border: 1px solid #cd8d31;
+box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  cursor: pointer;
+  margin: 0 auto;
+  margin: 7px 5px;
+  padding-left: 11px;
+}
+input[type=submit],input[type=submit].submit_no_margin {
+	color: white;
+	background: linear-gradient(to bottom, #deb67b 24%, #b57929 55%, #7b4908 80%); 
+	border: 1px solid #b57929;
+	border-radius: 5px;
+	margin-top: 10px;
+	width: 141px;
+	height: 25px;
+	font-size: 14px;
+	color: #ffffff;
+	font-family: "Verdana";
+	text-transform: uppercase;
+	text-shadow: black 0 1px 0.2px;
+}
+input[type=submit].submit_no_margin {
+	margin-top: 0;
+}
+input[type=submit]:focus{
+	outline: none;
+}
+.input_request, .input_request2 {
+	display: flex;
+	justify-content: center;
+}
+
+/* кнопочное меню вверху */
+.inner_main_menu {
+	margin: 0 auto; 
+	width: 925px;}
+.inner_main_menu ul {
+	margin: 0; 
+	padding: 0; 
+	list-style: none;
+	text-align: right;
+	font-size: 0;
+}
+/* оформление кнопок в верхнем меню */
+.inner_main_menu ul li {
+	float: none;
+	display: inline-block; 
+	height: 40px; 
+	/* width: 120px; */
+	width: 114px;
+	box-sizing: border-box;
+	text-align: center;
+	vertical-align: middle;
+	background: linear-gradient(to bottom, #deb67b, #b57929 55%, #7b4908 80%);
+	box-shadow: 0 0 0 1px #decbb4, 1px 1px 0 1px #4a2c18;/* двойная рамка */
+	font-size: 11px;
+}
+.inner_main_menu ul li:nth-child(1) {float: left; border-radius: 10px 0 0 10px;} /* скругленные углы у первой и последней кнопок */
+.inner_main_menu ul li:nth-child(2) {float: left;}
+.inner_main_menu ul li:nth-child(3) {float: left; box-shadow: 0 0 0 1px #decbb4, 1px 1px 0 1px #4a2c18,/* двойная рамка */-10px 0px 9px -8px #4a2c18 inset;}/* тени у кнопок по бокам изображения */
+.inner_main_menu ul li:nth-child(4) {box-shadow: 0 0 0 1px #decbb4, 1px 1px 0 1px #4a2c18,/* двойная рамка */10px 0px 9px -8px #4a2c18 inset;} /* тени у кнопок по бокам изображения */
+.inner_main_menu ul li:nth-child(6) {border-radius: 0 10px 10px 0; box-shadow: 0 0 0 1px #decbb4, 0 1px 0 1px #4a2c18;} /* скругленные углы у первой и последней кнопок */
+.inner_main_menu ul li span:after {
+	height: 40px;
+	vertical-align: middle;
+	content: '';
+	display: inline-block;
+}
+.inner_main_menu ul li a {
+	text-shadow: black 0 1px 0.2px;
+	color: #ffffff;
+	font-family: "Verdana";
+	/* filter: drop-shadow(0px 1px 0px rgba(17,17,26,0.46)); */
+	text-transform: uppercase; 
+	text-decoration: none;
+	display: block;
+}
+
+#main_menu {width: 100%; position:relative;}
+/* положение картинки */
+.logo_area {
+	width: 308px;
+	height: 136px;
+	position:absolute;
+	left:50%;
+	top: -67px;
+	content: "";
+	margin-left: -155px;
+	z-index: 2;
+} 
+.logo {
+	width: 308px;
+}
+/*раскрывающийся список по кнопке */
+/* Dropdown button */
+.dropbtn {
+	height: 40px;
+	width: 114px;
+	box-sizing: border-box;
+	border: none;
+	border-left: 1px solid #4a2c18;
+	box-shadow: 0 0 0 1px #decbb4, 1px 1px 0 1px #4a2c18; /* двойная рамка */
+	background: linear-gradient(to bottom, #deb67b, #b57929 55%, #7b4908 80%); /*темный градиент */
+	text-align: center;
+	text-transform: uppercase;
+	color: white;
+	text-shadow: black 0 1px 0.2px;
+	font-family: "Verdana", sans-serif; 
+	font-size:11px;
+}
+/* Dropdown button on hover & focus */
+/* .dropbtn:hover, */ .dropbtn:focus {
+    background: linear-gradient(to bottom,  #f7e3ad 20%,  #efc77b 40%, #efd394); 
+	font-size: 11px;
+	color: #4e2c1e;
+	font-family: "Verdana";
+	text-align: center;
+	filter: drop-shadow(0px 1px 0px rgba(17,17,26,0.46));
+	outline: 1px solid ;
+	text-shadow: #4a2c18 0 1px 1px;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffefc8;
+    width: 204px;
+    z-index: 1;
+	border: 1px solid #bfa485;
+}
+/* Links inside the dropdown */
+.inner_main_menu ul li .dropdown a {
+   /*  padding: 12px 16px; */
+    text-decoration: none;
+    display: block;
+	text-align:left;
+	font-family: "Verdana", sans-serif; 
+	font-size: 14px;
+	color: #4a2c18;
+	text-shadow: #4a2c18 0 1px 0px;
+	text-transform: none;
+	line-height: 35px;
+	padding-left: 10px;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #d8af75; box-shadow: 0 0 0 1px #b8884f, 0 0 0 2px #b1b1b1; /* двойная рамка */}
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+/*адаптивное слайд-шоу карусель */
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 925px;
+  position: relative;
+   margin: auto;
+  box-shadow: 0px 5px 8px -3px rgba(50, 50, 50, 0.75);
+  margin-top: 2px;
+}
+/* Hide the images by default */
+.mySlides {
+    display: none;
+	font-size: 0;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #e7ba73; /* светло-коричневый цвет */
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  box-shadow:  0px 5px 8px -3px rgba(74, 44, 24, 0.75) inset; /* внутрення тень вверху */
+}
+/* точки при нажатии, наведении мышью */
+.active, .dot:hover {
+  background-color: #4a2c18; /* темно-коричневая цвет */
+  border: 1px solid #4a2c18; /* темно-коричневая границф */
+  box-shadow: 0 0 0 1px white, 0 0 0 2px #4a2c18; /* двойная рамка */
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+/*MAIN main page */
+main {
+	flex: 1 0 auto;
+}
+section {
+	padding-left: 22px;
+	padding-right: 22px;
+}
+/*параграф с основным текстом */
+.justify_text {
+	text-align: justify;
+	margin-bottom: 120px;
+	margin-top: 47px;
+	height: 367px;
+	padding-left: 24px;
+	padding-right: 24px;
+}
+h1 {
+	font-size: 22px;
+	font-weight: bold;
+	font-family: "Garamond C";
+	background: linear-gradient(to bottom, #79411e, #542f20);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #4e2c1e;
+	/* text-shadow: rgb(71, 40, 0) 0 0 1px; */
+}
+h2 {
+	font-family: "BookAntiqua", serif; 
+	font-size: 25px;
+	color:#4a2c18;
+	text-align: center;
+}
+p {
+	font-size: 13px;
+	color: #35190d;
+	font-family: "Arial"; 
+}
+h3 {
+	font-size: 24px;
+	color: #4e2c1e;
+	font-family: "ArialMT", sans-serif;
+	font-weight: normal;
+}  
+/* принцип горизонтального меню для блоков про персонал */
+/* самый общий div обертка */
+.staff {
+	
+	height: 283px;
+	margin: 30px 0 55px 0;/* отступ блока снаружи от других элементов */
+	padding: 0;
+	display: flex;
+	background-image: url('images/bordertop.png'),url('images/borderlinecenter.png'), url('images/borderleftbottom.png'), url('images/borderrightbottom.png'); /* для рамки-изображения */
+	background-position: center top, center 57px, left bottom, right bottom;
+	background-repeat: no-repeat;
+}
+/* 2 внутренних блока про персонал */
+.temp, .constant {
+	display: inline;
+	flex-basis: auto;
+	flex-grow: 1;
+	text-align: justify;
+	width: 440px;
+}
+
+.constant {
+	padding: 24px 21px 15px 38px;
+	padding-top: 17px;
+}
+.temp {
+	padding: 15px 38px 15px 27px; /* отступ у блока внутри от элементов */
+}
+.constant h1 {
+	margin-top: 10px;
+}
+.temp h1{
+	margin-left: 224px;
+	margin-top: 10px;
+}
+/* .constant p {
+	margin: 20px 0 0 0;
+}
+.temp p {
+	margin: 19px 0 0 0;
+} */
+.upper_p {
+	height: 63px;
+	text-align: left;
+	margin-bottom: 0;
+}
+.lower_p {
+	height: 65px;
+	text-align: justify;
+	margin-top: 0;
+}
+.constant p, .temp p {
+	width: 375.5px;
+	/* height: 128px; */
+}
+/* .constant p {
+	margin-bottom: 0px;
+} */
+/* фото про постоянный персонал */
+.constant img { 
+	float:right;
+	margin-left:13px;/* отступ картинки от границ блока */
+}
+/* фото про временный персонал */
+.temp img {
+	float:left;
+	margin: 0 24px 0 5px;
+}
+/* кнопка Подробнее постоянный персонал */
+.constant button, .temp button {
+	background: linear-gradient(to bottom, #FFEFC8, #f0ca6b, #ffe6a7); /*светлый градиент*/
+	float:right;
+	border: 1px solid #b57929;
+	border-radius: 5px;
+	height: 25px;
+	width: 122px;
+}
+.constant button {
+	float: right;
+	margin-top: 13px;
+}
+.temp button {
+	float: left;
+	margin-top: 10px; 
+}
+.constant button:focus, .temp button:focus {
+	outline:none;
+}	
+/* ссылка на кнопке Подробнее постоянный персонал */
+.const a, .temp a{
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 12px;
+	color: #4e2c1e;
+	font-family: "Verdana";
+	text-align: center;
+	filter: drop-shadow(0px 1px 0px rgba(17,17,26,0.46));
+}
+.constant button:hover, .temp button:hover {
+	background: linear-gradient(to bottom, #f7d7b5,  #ce8e31 40%,  #7b4908 80%); /*темный градиент */
+}
+.constant a:hover, .temp a:hover {
+	color: white;
+}
+/* секция с картинками, принцип горизонтального меню */
+/* самый общий div обертка*/
+.pictures {
+	margin: 20px 0;/* отступ блока снаружи от других элементов */
+	padding: 0 50px;
+	display: flex;
+	justify-content: space-around;
+}
+/* div для каждой картинки */
+.picture {
+	display: inline;
+	flex-basis: auto;
+	width: 182px;
+	height: 189px;
+	border: 1px solid #4a2c18; /* темно-коричневый цвет */
+	background: white;
+}
+/* расположение картинки по горизонтальному центру ее собственного div*/
+.picture img { 
+	display:block;
+	margin: auto;
+	height: 100%;
+}
+/*MAIN STAFF.HTML */
+/* 2я страница, рамка с кнопками*/
+/* div c орнаментом*/
+.ornament {
+	width: 883px;
+	height: 116px;
+	background-image: url('images/ornamentleft.png'), url('images/ornamentright.png');
+	background-position: left top, right top;
+	background-repeat: no-repeat;
+	padding-left: 9px;
+	padding-right: 9px;
+	padding-bottom: 0px;
+	padding-top: 8px;
+}
+/* самый общий div обертка*/
+.choosestaff {
+	margin: 0; /* отступ блока снаружи от других элементов */
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center; /* по центру по горизонтали*/
+	align-content: center; /* вертикальные ряды по центру*/
+	border: 1px solid #b8af9d; /* для рамки-изображения*/
+	/* border-image: url('images/borderstaff.png') 20; */ /* рамка-изображение*/
+	background: #f7efce;
+	background-image: url('images/ornamentleft.png'), url('images/ornamentright.png');
+	background-position: -9px -8px, 767px -8px;
+	background-repeat: no-repeat;
+	width: 861px;
+	height: 105px;
+	box-sizing: border-box;
+}
+.choosestaff p {
+	font-family: "Verdana", sans-serif; 
+	font-size: 18px;
+}
+/* .choooseselect - div с раскрывющимся списком; .choosenumber - div с input type number; .choose - div с кнопкой Подобрать */
+.choose, .choooseselect, .choosenumber {
+	flex-grow: 1;
+	font-family: "Verdana", sans-serif; 
+	font-size: 18px;
+}
+
+/* div с input type number*/
+.choosenumber {
+	text-align: right;
+}
+/* верхний абзац в choosenumber*/
+.upper {
+	margin-top: 14px;
+	margin-bottom: 7px;
+}
+/* нижний абзац в choosenumber*/
+.lower {
+	margin-top: 0;
+	margin-bottom: 14px;
+}
+/* div с кнопкой Подобрать*/
+.choose {
+	align-self: center; /* по вертикали по центру*/
+	width: 135px;
+	height: 34px;
+	text-align: center; /* выравнивание текста внутри кнопки*/
+	font-family: "Verdana", sans-serif; 
+	font-size: 14px;
+}
+/*размеры поля ввода input type number*/
+input[type=number] {
+	width:40px;
+	height:35px;
+	font-family: "Verdana", sans-serif; 
+	font-size: 18px;
+	text-align: center;
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+	
+}
+input[type=number] {
+	-moz-appearance: textfield;
+}
+input[type=number]:focus {
+	outline: none;
+}
+
+.select__gap_onstaff {
+  display: inline-block;
+  vertical-align: top; 
+  max-width: 203px;
+  height:33px;
+  width: 100%;
+}
+/*оформление раскрывающегося списка
+.onstaff_select {
+	border: 1px solid #b57929;
+	background: url('images/select.png') no-repeat right center; 
+	background-color: white;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+	padding: 5px 5px 5px 13px; 
+	margin-left: 60px;
+	width: 202px;
+	height: 33px;
+	font-family: "Verdana", sans-serif; 
+	font-size: 18px;
+	text-shadow: rgba(0, 0, 0, 0.5) 0 0.3px 0;
+}*/
+.select__gap_onstaff {
+	height:33px;
+	color: black;
+	text-shadow: rgba(0, 0, 0, 0.5) 0 0.3px 0;
+	background: url('images/select.png') no-repeat right center; 
+	background-color: white;
+	-webkit-appearance: none;/* Chrome */
+    -moz-appearance: none;/* Firefox */
+    appearance: none;/* убираем дефолнтные стрелочки */
+    border: 1px solid #cd8d31;
+	font-size: 18px;
+	font-family: "Verdana", sans-serif;
+	padding: 5px 5px 5px 13px; 
+	margin-left: 60px;
+	cursor: pointer;
+	position: relative;
+}
+
+/* .on.select__gap, 
+.select__gap:hover {
+  color: #467797;
+} 
+*/
+.select__list_onstaff {
+	background-color: #fcebc6;
+    border: 1px solid #cd8d31;
+	height: 188px;
+	width: 203px;
+	margin: 0px 0;
+	margin-left: 60px;
+	position: relative;
+	z-index: 1;
+}
+.select__list_onstaff.on {
+	display: block;
+}
+
+.select__item_onstaff span {
+	display: block;
+	padding: 0 13px;
+	font-family: "Verdana", sans-serif;
+	font-size: 14px;
+	line-height: 31px;
+	text-shadow: rgb(71, 40, 0) 0 0 1px;
+	cursor: pointer;
+    color: #45250a;
+}
+
+.select__item_onstaff.selected,
+.select__item_onstaff span:hover {
+	background-color: #d8af75;
+}
+
+
+/*убираем границы при нажатии*/
+select:focus {
+	outline: none;
+}
+
+.select {
+	margin-left: 60px;
+}
+/*оформление кнопки Подобрать*/
+.submit {
+	color: white;
+	text-shadow:rgba(0, 0, 0, 0.3) 0 1px 2px;
+	background: linear-gradient(to bottom, #deb67b, #b57929 55%, #7b4908 80%); 
+	border: 1px solid #b57929;
+	border-radius: 5px;
+	margin-top: 10px;
+	width: 141px;
+	height: 25px;
+}
+.submit:focus {
+	outline: none;
+}
+input[type=submit]:focus{
+	outline: none;
+}
+/*staff table */
+/*оформление таблицы с персоналом*/
+table {
+	text-align: center;
+	margin: auto; /*положение таблицы по центру*/
+	margin-top: 21px;
+	background-color: #fffbe7;
+	border-collapse: collapse;
+	font-family: "Verdana", sans-serif; 
+	font-size: 15px;
+	color: #654f3d;
+	line-height: 30px;
+	width: 870px;
+	
+}
+/*оформление заглавной линии таблицы*/
+th {
+	background: #844900;
+	font-family: "ArialMT", sans-serif; 
+	font-size: 15px;
+	color: white;
+	border: 1px solid #b57929;
+	filter: drop-shadow(0px 1px 0px rgba(17,17,26,0.46));
+}
+/*оформление четных строк*/
+tr:nth-child(even) {
+	background: white;
+	border: 1px solid #b57929;
+}
+/*первая колонка с обычными ячейками*/
+td:first-child {
+	text-align: left;
+	color: #311f10;
+	filter: drop-shadow(0px 1px 0px rgba(17,17,26,0.46));
+	}
+/*оформление четных строк, границы каждой ячейки*/
+tr:nth-child(odd) td {
+  border: 1px solid #b57929;
+}
+/*границы первых ячеек*/
+tr td:first-child {
+  border-left: none;
+}
+/*границы последних ячеек*/
+tr td:last-child {
+  border-right: none;
+}
+/*две ячейки с коричневым текстом*/
+td.brown {
+	color: #744201;
+	filter: drop-shadow(0 0 0px rgba(17,17,26,0.29));
+}
+/*for hiding table rowa*/
+.hidden {
+	display: none;
+}
+/*FOOTER */
+footer {
+	flex: 0 0 auto;
+	text-align:center;
+}
+/*о компании, темно-коричневый фон */
+/*нижнее горизонтальное меню */
+ul.downmenu {
+	margin: 0;
+	padding: 0 35px;
+	display: flex;
+}
+ul.downmenu a {
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: white;
+	font-family: "ArialMT", sans-serif; 
+	font-size: 11px;
+}
+ul.downmenu li {
+	display: inline;
+	list-style-type: none;
+	flex-basis: auto;
+	flex-grow: 1;
+}
+.company { 
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 11px;
+	color: #ffffff;
+	font-family: "Arial";
+	filter: drop-shadow(0px 1px 0px rgba(17,17,26,0.46));
+	line-height: 43px;
+	background:#4a2c18; /*темно-коричневый	цвет */
+	/* padding: auto 50px; */
+}
+/*о юнивеб, с градиентом */
+.uniweb {
+	text-align: justify;
+	font-size: 0; /*для растаски по углам */
+    line-height: 0;/*для растаски по углам */
+	background: linear-gradient(to bottom, #7b5d42, #a57d5a);
+	color:white;
+}
+/*для растаски по углам */
+.uniweb:after {
+    content: '';
+    width: 100%;
+    display: inline-block;
+}
+/*фото посередине строки */
+.uniwebmini {
+	vertical-align: middle;
+}
+/*для растаски по углам */
+.number {
+	font-family: "GaramondC", serif; 
+	font-size: 19px; /*phone number */
+	color: #ffffff;
+	display: inline-block;
+	line-height: 43px;
+	margin-left: 50px;
+}
+/*для растаски по углам */
+.ad {
+	font-family: "Tahoma", sans-serif; 
+	font-size: 11px; /*текст про юнивеб */
+	display: inline-block;
+	line-height: 43px;
+	font-size: 11px;
+	filter: drop-shadow(0px 1px 0px rgba(17,17,26,0.63));
+	margin-right: 44px;
+}
+/*полосы разделители в горизонтальном меню о компаниии*/
+.divider {
+	color: white;
+	display: inline-block;
+}

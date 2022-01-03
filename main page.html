@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru"> <!-- ред. 20.12 -->
+<head>
+<meta charset="utf-8">
+<link href="style.css" rel="stylesheet">
+<title>Ваш дом. Агенство домашнего персонала</title>
+</head>
+	<body>
+		<div class="container">
+		<header>
+<!-- темно-коричневая линия с телефоном и 2 кнопками -->
+		<div class="upline">
+			<div class="upnumber">8 (4872) 31-13-45</div> <!-- номер телефона -->
+	<!-- две кнопки слева -->
+			<div class="buttons"style="position:relative">
+			<div class="btn">
+		<button  class="request" name="request">Оставить заявку</button>
+				<div class="dropdown-content2">
+					<form name="form_request" action="main page.html" method="post">
+					
+					<input type="text" placeholder="ФИО" name="full_name">
+					<input type="text" placeholder="Телефон" name="phone_number">
+						<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+						<select onclick="upperstaff()"  class="upper_staff">
+							<option selected>Няня</option>
+							<option>Гувернантка</option>
+							<option>Репетитор</option>
+							<option>Водитель</a></option>
+							<option>Садовник</option>
+						</select>
+						<select onclick="timetable()"  class="timetable">
+							<option>Полный день</option>
+							<option>Пол дня</option>
+							<option>Несколько часов</option>
+							<option>Круглосуточно</option>
+						</select>
+					<textarea placeholder="Дополнительная информация"></textarea>
+					<div class="input_request"><input type="submit" value="Отправить" name="submit_request"></div>
+					</form>
+				</div>
+			</div>	
+			<div class="btn2">
+			<button class="cv" name="cv">Отправить резюме</button>
+				<div class="dropdown-content3">
+				<form name="form_cv" action="main page.html" method="post">
+					<input type="text" placeholder="ФИО" name="full_name">
+					<input type="text" placeholder="Телефон" name="phone_number">
+					<select onclick="upperstaff()"  class="upper_staff">
+							<option selected>Няня</option>
+							<option>Гувернантка</option>
+							<option>Репетитор</option>
+							<option>Водитель</a></option>
+							<option>Садовник</option>
+						</select>
+					<input type="text" placeholder="Образование" name="education">
+					<div class="input__wrapper">
+						<input type="file" name="file" id="input__file" class="input input__file">
+						<label for="input__file" class="input__file-button">
+						<span class="input__file-button-text">Прикрепить резюме</span>
+						</label>
+						</div>
+					<div class="input_request2"><input type="submit" value="Отправить" name="submit_request"></div>
+				</form>
+				</div>
+			</div>
+			</div>
+		</div>
+<!-- линиия кнокпок с изображениием по центру -->
+	<div id="main_menu">
+		<div class="inner_main_menu">
+			<div class="logo_area">
+			<a href="#"><img class="logo" src="images/companylogo.png"></a>
+			</div>
+		<!-- начало списка для растягивания по всей ширине -->
+			<ul class="buttonmenu">
+		<!-- первый элемент -->
+		<li><a href="#"><span>Главная</span></a></li>
+		<!-- второй элемент - раскрывающееся меню -->
+		<li><div class="dropdown">
+		<button onclick="myFunction()" class="dropbtn">Подобрать персонал</button>
+				<div id="myDropdown" class="dropdown-content">
+					<a href="#">О нас</a>
+					<a href="#">Задать вопрос</a>
+					<a href="staff.html">Это интересно</a>
+					<a href="#">Отзывы</a>
+				</div>
+			</div></li>
+		<!-- третий элемент -->
+		<li><a href="#"><span>Цены</span></a></li>
+		<!-- четвертый элемент -->
+		<li><a href="#" style="margin-left: 3px; margin-top: 7px">Оставить заявку</a></li>
+		<!-- пятый элемент -->
+		<li><a href="#" style="margin-left: 3px; margin-top: 7px">Оставить вакансию</a></li>
+		<!-- шестой элемент -->
+		<li><a href="#"><span>Контакты</span></a></li>
+			</ul>
+		</div>
+	</div>
+		<!-- Slideshow container -->
+		<div class="slideshow-container">
+
+		  <!-- Full-width images without number and caption text -->
+		  <div class="mySlides fade">
+			<img src="images/happy.jpg" style="width:100%">
+		  </div>
+		  <div class="mySlides fade">
+			<img src="images/happy2.jpg" style="width:100%">
+		  </div>
+		  <div class="mySlides fade">
+			<img src="images/happy3.jpg" style="width:100%">
+		  </div>
+		  <div class="mySlides fade">
+			<img src="images/happy4.jpg" style="width:100%">
+		  </div>
+		  <div class="mySlides fade">
+			<img src="images/happy5.jpg" style="width:100%">
+		  </div>
+		  <div class="mySlides fade">
+			<img src="images/happy.jpg" style="width:100%">
+		  </div>
+		<!-- Next and previous buttons -->
+		  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+		</div>
+		<br>
+
+		<!-- The dots/circles -->
+		<div style="text-align:center">
+		  <span class="dot" onclick="currentSlide(1)"></span>
+		  <span class="dot" onclick="currentSlide(2)"></span>
+		  <span class="dot" onclick="currentSlide(3)"></span>
+		  <span class="dot" onclick="currentSlide(4)"></span>
+		  <span class="dot" onclick="currentSlide(5)"></span>
+		  <span class="dot" onclick="currentSlide(6)"></span>
+		</div>
+		</header>
+		<main>
+			<section >
+			<!-- Два блока про персонал с картинками и текстом -->
+			<div class="staff">
+				<div class="constant">
+					<img src="images/constant.png">
+					<h1>Постоянный персонал</h1>
+					<p class="upper_p">Наличие в доме обслуживающего
+					персонала - водителя, няни,
+					гувернантки, горничной,
+					домработницы - это вовсе не</p>
+					<p class="lower_p">дань моде и не причуды избалованных нежданно
+					свалившимся богатством нуворишей. Напротив, услугами
+					сиделки или няни пользуются сегодня те, кто отлично знает
+					цену деньгам и своему времени.
+					</p>
+					<button class="const"><a href="#">Подробнее</a></button>
+				</div>
+				<div class="temp">
+					<img src="images/temporal.png">
+					<h1>Временный персонал</h1>
+					<p class="upper_p" style="margin-top: 23px">Наличие в доме обслуживающего
+					персонала - водителя, няни,
+					гувернантки, горничной,
+					домработницы - это вовсе не</p>
+					<p class="lower_p">дань моде и не причуды избалованных нежданно
+					свалившимся богатством нуворишей. Напротив, услугами
+					сиделки или няни пользуются сегодня те, кто отлично знает
+					цену деньгам и своему времени.
+					</p>
+					<button><a href="#">Подробнее</a></button>
+				</div>
+			</div>
+			</section>
+			<section>
+			<!--раздел с 4 картинками-->
+			<div class="pictures">
+				<div class="picture"><img src="images/mainpic1.png"></div>
+				<div class="picture"><img src="images/mainpic2.png"></div>
+				<div class="picture"><img src="images/mainpic3.png"></div>
+				<div class="picture"><img src="images/mainpic4.png"></div>
+			</div>
+			</section>
+			<section class="justify_text">
+				<h3>Заголовок</h3>
+				<p>Наличие в доме обслуживающего персонала
+				водителя, няни, гувернантки, горничной, домработницы
+				это
+				вовсе не дань моде и не причуды избалованных нежданно свалившимся богатством нуворишей. Напротив,
+				услугами сиделки или няни пользуются сегодня те, кто отлично знает цену деньгам и своему времени</p>
+				<p>Наличие в доме обслуживающего персонала - водителя, няни, гувернантки, горничной, домработницы - это
+				вовсе не дань моде и не причуды избалованных нежданно свалившимся богатством нуворишей. Напротив,
+				услугами сиделки или няни пользуются сегодня те, кто отлично знает цену деньгам и своему времени
+				Наличие в доме обслуживающего персонала - водителя, няни, гувернантки, горничной, домработницы - это вовсе не
+				дань моде и не причуды избалованных нежданно свалившимся богатством нуворишей. Напротив, услугами сиделки
+				или няни пользуются сегодня те, кто отлично знает цену деньгам и своему времени. Люди, для которых важно не
+				только вырастить ребенка, но и создать основу будущего благосостояния, построив свою карьеру -
+				вот основная
+				категорий заказчиков, которые ежедневно пользуются услугами нашей компании по подбору домашнего персонала.
+				Заказ няни, сиделки или домработницы является благом не только для женщины, которая имеет возможность
+				строить свою карьеру или получить, наконец, передышку от выполнения бесконечных домашних обязанностей, но
+				и для всех остальных членов семьи, которые могут провести вместе свободный вечер или выходные. А доступные
+				цены, которые устанавливает на свои услуги наша компания, и предлагаемый нами широкий выбор различных
+				категорий домашнего персонала делают исключительно удобным и, главное, безопасным процесс поиска няни
+				для малыша, сиделки для пожилых членов семьи или домработницы дляртиры или загородного особняка.</p>
+				<p>Наличие в доме обслуживающего персонала - водителя, няни, гувернантки, горничной, домработницы - это вовсе не дань моде и не
+				причуды избалованных нежданно свалившимся богатством нуворишей. Напротив, услугами сиделки или няни пользуются сегодня
+				те, кто отлично знает цену деньгам и своему времени. Люди, для которых важно не только вырастить ребенка, но и создать основу
+				</p>
+			</section>
+		</main>
+		<footer>
+		<!-- нижнее меню -->
+		<div class="company">
+			<ul class="downmenu">
+				<li><a href="">Главная</a></li>
+				<li class="divider">|</li>
+				<li><a href="">Подобрать персонал</a></li>
+				<li class="divider">|</li>
+				<li><a href="">Цены</a></li>
+				<li class="divider">|</li>
+				<li><a href="">Главная</a></li>
+				<li class="divider">|</li>
+				<li><a href="">Подобрать персонал</a></li>
+				<li class="divider">|</li>
+				<li><a href="">Цены</a></li>
+			</ul>
+		</div>
+		<!-- нижнее под-меню про юнивеб -->
+		<div class="uniweb">
+			<!-- номер телефона -->
+			<div class="number">8 (4872) 31-13-45</div>
+			<!-- реклама юнивеб -->
+			<div class="ad">Разработка и продвижение сайта компанией "Юни Веб" - <img class="uniwebmini" src="images/uniwebminitransparent.png"></div>
+		</div>
+		</footer>
+<script src="js/dropdown buttonmenu.js"></script>
+<script src="js/dropdown request.js"></script>
+<script src="js/dropdown cv.js"></script>
+<script src="js/slideshow.js"></script>
+<script src="js/select upperstaff.js"></script>
+<script src="js/select timetable.js"></script>
+<script src="js/input file.js"></script>
+</div>
+	</body>
+</html>
